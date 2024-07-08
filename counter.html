@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Widget</title>
+    <!-- AlpineJS CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .increment {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .decrement {
+            background-color: #f44336;
+            color: white;
+        }
+        .clear {
+            background-color: #2196F3;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" x-data="{ count: 0 }">
+        <h1>Counter</h1>
+        <div class="counter" x-text="count"></div>
+        <div>
+            <button class="increment" @click="count++">Increment</button>
+            <button class="decrement" @click="count--">Decrement</button>
+            <button class="clear" @click="count = 0">Clear</button>
+        </div>
+    </div>
+</body>
+</html>
