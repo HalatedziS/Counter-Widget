@@ -53,14 +53,36 @@
     </style>
 </head>
 <body>
-    <div class="container" x-data="{ count: 0 }">
+    <div class="container" x-data="counterWidget()">
         <h1>Counter</h1>
         <div class="counter" x-text="count"></div>
         <div>
-            <button class="increment" @click="count++">Increment</button>
-            <button class="decrement" @click="count--">Decrement</button>
-            <button class="clear" @click="count = 0">Clear</button>
+            <button class="increment" @click="increment">Increment</button>
+            <button class="decrement" @click="decrement">Decrement</button>
+            <button class="clear" @click="clear">Clear</button>
         </div>
     </div>
+
+    <script>
+        function counterWidget() {
+            return {
+                count: 0,
+                maxCount: 10, // Set your desired max value here
+                increment() {
+                    if (this.count < this.maxCount) {
+                        this.count++;
+                    }
+                },
+                decrement() {
+                    if (this.count > 0) {
+                        this.count--;
+                    }
+                },
+                clear() {
+                    this.count = 0;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
